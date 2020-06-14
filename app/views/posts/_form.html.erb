@@ -1,0 +1,159 @@
+<!--
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+-->
+
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="info" class="container tab-pane active"><br>
+              <div id="chart" style="">
+                <div class="row-12">
+                  <div class="col-10">
+                    <form>
+                      <div class="form-group row">
+                        <div><%= form.label :title, "Mã hàng", class: "col-*-4", style: "margin-left: 15px;"%></div>
+                        <div class="col-*-8" style="margin-left: 63px;">
+                          <%= form.text_field :title, class: "form-control", id: "infobar" %>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div><%= form.label :body, "Tên hàng",class: "col-*-4", style: "margin-left: 15px;" %></div>
+                        <div class="col-*-8" style="margin-left: 63px;">
+                          <%= form.text_field :body, class: "form-control", id: "infobar" %>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label><%= form.label :cost, "Giá vốn", class: "col-*-4", style: "margin-left: 15px;" %></label>
+                        <div class="col-*-8" style="margin-left: 68px;">
+                          <%= form.number_field :cost, class: "form-control", id: "infobar" %>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label><%= form.label :price, "Giá bán", class: "col-*-4", style: "margin-left: 15px;" %></label>
+                        <div class="col-*-8" style="margin-left: 68px;">
+                          <%= form.number_field :price, class: "form-control", id:"infobar"  %>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div><%= form.label :quantity, "Số lượng",class: "col-*-4", style: "margin-left: 15px;" %></div>
+                        <div class="col-*-8" style="margin-left: 60px;">
+                          <%= form.number_field :quantity, class: "form-control", id: "infobar" %>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label><%= form.label :image, "Ảnh",class: "col-*-4", style: "margin-left: 15px;" %></label>
+                        <div class="col-*-8" style="margin-left: 90px;">
+                          <form>
+                            <div class="custom-file">
+                              <input >
+                              <%= form.file_field :image, class: "custom-file-input", id: "customFile", style: "width: 400px;" %>
+                              <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                  </form>
+                </div>
+
+                <div class="col-3">
+                </div>
+              </div>
+              <%= button_tag(type: 'submit', class: "btn btn-success", id: "searchbutton", style: "margin-bottom: 20px; margin-left: 835px !important;") do %>
+              <span class="fa fa-floppy-o"></span> Lưu
+              <% end %>
+              <% end %>
+
+  <script>
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+  });
+</script>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body {   
+/*background: url('https://mdbootstrap.com/img/Photos/Others/images/91.jpg') no-repeat center center fixed;   
+-webkit-background-size: cover;  
+-moz-background-size: cover;  
+-o-background-size: cover;  
+background-size: cover;*/
+}
+#header{
+  padding: 0px 0px;
+  margin-right: -10px;
+  background-color: #0544FA/*#eb3424*/ !important;
+}
+.jumbotron{
+	padding: 0px 0px;
+	margin-bottom: 0px;
+	border: 0px;
+	line-height: 20px;
+	/*background-color: rgba(105, 105, 105, 1)  !important; */
+}
+#header li a{
+	color: white !important;
+}
+#header li a:hover{
+	color: black !important;
+}
+#headersquare{
+	padding: 0px 0px;
+}
+#companyname{
+	color: white !important;
+	position: relative;
+	text-align: center;
+	width: 15%;
+}
+.mtp-l {
+	  font-family: 'PT Sans', sans-serif;
+}
+.nav-item{
+	margin-right: 20px;
+}
+/*Điều chỉnh thanh navbar thứ 2*/
+#brand{
+	background-color: rgb(230, 126, 34) !important; 
+}
+#buttons{
+	margin-right: -50px;
+}
+.row{
+	/*padding: 0px 0px;*/
+}
+
+#size{
+	/*background-color: #FFFFFF !important;*/
+	margin: 0px !important;
+	border: 0px !important;
+	padding: 0px 0px;
+
+}
+#displayproducts{
+	background-color: #FFFFFF !important;
+	position: 5px;
+	border-style: solid;
+	border-color: white grey grey white;
+	border-width: 7px;
+	padding: 0px 0px;
+}
+#purchase{
+	
+	height: 800px;
+	/*width: 450px;*/
+	padding: 0px 0px;
+}
+#invoice{
+	margin-top: 10px;
+}
+#notice{
+	margin-top: 20px;
+}
+#purchasebutton{
+	margin-top: 310px;
+	height: 60px;
+	margin-left: 15px;
+}
+#supportcustomer{
+	margin-top: 7px;
+	margin-left: 5px;
+}
+#colorbill{
+	background-color: #FFFFFF !important;
+	padding: 0px 0px;
+	height: 800px;
+}
+#colorbillpart{
+	padding: 0px 0px;
+}
+#colorproductspart{
+	padding: 0px 0px;
+}
+#col8{
+	padding: 0px 0px;
+}
+#jumpbotronproduct1{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#jumpbotronproduct2{
+	margin-top: 10px;
+	position: absolute;
+	position-top: 10px;
+}
+hr {
+   width: 500px !important;
+   /*height: 150px;*/
+   margin-top: 0px;
+}
+div.tab {
+    overflow: hidden; 
+    border: 1px solid #ccc; 
+    background-color: #f1f1f1; 
+}
+ 
+/* định dạng các button tab */
+div.tab button {
+    background-color: inherit; 
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    height: 40px
+}

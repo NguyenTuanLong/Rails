@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test2</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+  <title>TuanMinh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href="./css/style_employee.css" rel="stylesheet">
+  <link href="https://fonts.google.com/specimen/PT+Sans?sidebar.open&selection.family=PT+Sans:wght@700" rel="stylesheet"></link>
+  </head>
+
+  <body>
+  
+  <div class="jumbotron jumpbotron-fluid text-center jumpbotron-fixed-top" id="header">
+      <div class="jumpbotron-fluid" id="headersquare">
+        <nav class="navbar navbar-expand-md">
+          <div class="container-fluid">
+            <div class="row col-12" id="header">
+              <div class="col-2 text-center">
+                <a class="navbar-brand text-center" href="https://fb.me/MTPTechnology" id="companyname">MTP-L</a>
+                <p style="color: white !important;">Đội ngũ trẻ - Giàu tâm huyết</p> 
+              </div>
+              <!-- Links -->
+              <div class="col-10 navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="nav navbar-nav ml-auto" id="buttons">
+                  <li class="nav-item">
+                    <%if current_user%>
+                      <%= link_to receipts_url, class: "nav-link" do %>
+                        <span class="fa fa-cog"></span>
+                        Quản lí
+                      <% end %>
+                    <%else%>
+                      <a class="nav-link" href="receipts">
+                      <span class="fa fa-cog"></span>
+                      Quản lí
+                      </a>
+                    <%end%>
+                  </li>
+                  <!--span class="navbar-text">
+                    <span class="fa fa-user"></span>
+                    0912345678
+                  </span-->
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="fa fa-user"></span>
+                  0912345678              
+                  </a>
+                  </li>
+                  <li class="nav-item">
+                    <%if current_user%>
+                      <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                        <span class="fa fa-sign-out"></span>
+                        Đăng xuất
+                      <% end %>
+                    <%else%>
+                      <%= link_to new_user_session_path, class: "nav-link" do %>
+                      <span class="fa fa-sign-out"></span>
+                        Đăng nhập
+                      <% end %>
+                    <%end%>
+                  </li>
+      
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top navbar-fixed-top" id="brand">
+          <div class="container-fluid">
+            <a class="navbar-branch" href="https://www.youtube.com/channel/UCPRGrZCscuRJT_tUI2NTfzw">
+              <%= image_tag("logo.png" , height: 50)%>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/"><span class="fa fa-globe"></span> Tổng quan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/posts"><span class="fa fa-archive"></span> Hàng hóa</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" href="#"><span class="fa fa-users"></span> Nhân viên</a>
+                  <div class="dropdown-menu">
+                        <a class="dropdown-item" href="employee.html"><span class="fa fa-users"></span> Nhân viên</a>
+                        <a class="dropdown-item" href="salary.html"><span class="fa fa-database"></span> Bảng tính lương</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <%begin%>
+                   <%= link_to  cart_path(current_cart), class: 'nav-link'  do %>
+                     <span  class="fa fa-cart-plus" > Bán Hàng </span>
+                   <% end %>
+                  <%rescue%>
+                  <li class="nav-item">
+								    <a class="nav-link" href="users/sign_in"><span class="fa fa-cart-plus"></span> Bán hàng</a>
+							    </li>
+                  <%end%>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+  </div>
+
+<div>
+</div>
+    <%= yield %>
+  </body>
+</html>

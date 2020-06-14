@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset="utf-8">
+  <title>TuanMinh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href="./css/style_product.css" rel="stylesheet">
+  <link href="https://fonts.google.com/specimen/PT+Sans?sidebar.open&selection.family=PT+Sans:wght@700" rel="stylesheet"></link>
+</head>
+<body>
+	<!--Navigation-->
+  <div class="row col-12" id="position">
+    <div class="col-2" id="searchproduct">
+        <div style="/*background:transparent !important*/" class="jumpbotron-fluid" id="color">
+
+            <h2 id="hanghoa">Hàng hóa</h2>
+            <b id="type">Nhóm hàng</b>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm nhóm hàng">
+
+            <ul id="myUL">
+              <li><a href="#">Nhóm hàng 011</a></li>
+              <li><a href="#">Nhóm hàng 012</a></li>
+              <li><a href="#">Nhóm hàng 021</a></li>
+              <li><a href="#">Nhóm hàng 022</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="col-10" id="table">
+      <div style="/*background:transparent !important*/" class="jumpbotron-fluid" id="colortable">
+        
+        <div class="row col-12">
+          <%= form_tag posts_path, method: :get do%>
+          <%= hidden_field_tag :direction, params[:direction]%>
+          <%= hidden_field_tag :sort, params[:sort]%>
+          <p>
+            <%= text_field_tag :search, params[:search], size: 70, placeholder: 'Tìm kiếm sản phẩm'%>
+            <%= button_tag :submit, name: nil, class: 'btn btn-danger', id: 'searchbutton' do %>
+            <span class="fa fa-plus"></span> Tìm kiếm
+            <% end %>
+          </p>
+        <% end %>
+          
+          <%= button_to new_post_path, method: :get, type: "button", class: "btn btn-danger", id: "importbutton" do %>
+          <span class="fa fa-file-text-o"></span> Thêm hàng
+          <% end %>
+          
+        </div>
+
+        <div class="container-fluid" id="producttable">
+          <table class="table">
+            <thead>
+              <tr class="table-info">
+                <th>Mã hàng</th>
+                <th>Ảnh sản phẩm </th>
+                <th>Tên hàng</th>
+                <th>Giá bán</th>
+                <th>Giá vốn</th>
+                <th>Tồn kho</th>
+                <th>Chi tiết</th>
+                <th>Sửa</th>
+                <th>Xóa</th>
+                <th>Thêm giỏ hàng</th>
+              </tr>
+            </thead>
+            <tbody>
+               <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.title %></td>
+                <td>
+                <% if (post.image.attached? == true) %>
+                <%= image_tag(post.image, height: 100, width: :auto) %>
+                <% else %>
+                No Image attached
+                <% end %>
+                </td>
+                <td><%= post.body %></td>
+                <td><%= post.price %> VNĐ</td>
+                <td><%= post.cost %> VNĐ</td>
+                <td><%= post.quantity %></td>
+                <td><%= button_to 'Show', post, method: :get ,class: 'btn btn-info btn-xs'%></td>
+                <td><%= button_to 'Edit', edit_post_path(post), method: :get, class: 'btn btn-info btn-xs'  %></td>
+                <td><%= button_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info btn-xs' %></td>
+                <td><%= button_to 'Add to Cart', line_items_path(post_id: post), remote: true, class: 'btn btn-info btn-xs'%></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row col-12">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--script type="text/javascript"></script-->
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</body>
+</html>
+

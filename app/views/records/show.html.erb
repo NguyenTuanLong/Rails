@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @record.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @record.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @record.user_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @record.price %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @record.cost %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @record.quantity %>
+</p>
+
+<p>
+  <strong>Reciept ID:</strong>
+  <%= @record.receipt_id %>
+</p>
+
+<%= link_to 'Back', records_path %>

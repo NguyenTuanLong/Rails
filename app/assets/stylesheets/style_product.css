@@ -1,0 +1,154 @@
+body {background-color: #eee;}
+/*------------------------------------------*/
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+/*-------------------------------------------*/
+#position{
+  margin-top: 20px;
+  margin-left: 5px;
+}
+#searchproduct{
+  height: 820px;
+  background-color: #fff !important;
+  /*width: 450px;*/
+}
+#color{
+  background-color: #FFFFFF !important;
+  margin-left: 15px;
+}
+#hanghoa{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+#table{
+  height: 820px;
+  background-color: #fff !important;
+}
+.table{
+  border-style: solid;
+  border-color: black black black black;
+  border-width: 1px;
+}
+#colortable{
+  background-color: #FFFFFF !important;
+  margin-top: 20px;
+}
+#producttable{
+  margin-top: 53px;
+  padding-left: 0px !important;
+}
+#type{
+  margin-bottom: 20px;
+}
+#searchbutton{
+  margin-left: 50px !important;
+}
+#importbutton{
+  margin-left: 15px !important;
+}
+#exportbutton{
+  margin-left: 15px !important;
+}
+#pages{
+  margin-left: 923px !important;
+}
+#note{
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+
+/*-------------------------------------------*/
+#header{
+  padding: 0px 0px;
+  margin-right: -10px;
+  background-color: #0544FA/*#eb3424*/ !important;
+}
+#headersquare{
+  padding: 0px 0px;
+}
+.jumbotron{
+  padding: 0px 0px;
+  margin-bottom: 0px;
+  border: 0px;
+  line-height: 20px;
+
+  /*background-color: rgba(105, 105, 105, 1)  !important; */
+}
+.jumbotron li a{
+  color: white !important;
+}
+.jumbotron li a:hover{
+  color: black !important;
+}
+#companyname{
+  color: white !important;
+  position: relative;
+  text-align: center;
+  width: 15%;
+}
+#brand{
+  background-color: #376AFB/*#FF4500*/ !important; 
+}
+#brand li a{
+  color: white !important;
+}
+#brand li a:hover{
+  color: black !important;
+}
+.dropdown-menu{
+  background-color: #376AFB !important; 
+}
+.navbar-brand {
+  color: #730E15;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 30px;
+  position: relative;
+  left: 0px;
+}
+.nav-item {
+  margin-right: 25px;
+}
+.navbar-nav {
+  margin-left: auto;
+}
+.mtp-l {
+    font-family: 'PT Sans', sans-serif;
+}
+.navbar{
+  position: relative;
+}
+#tools{
+  margin-top: -10px;
+  padding: 0px 0px;
+}
